@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&display=swap");
+
+:root {
+  --bg: #dde3e8;
+  --panel: #fff;
+  --ink: #121826;
+  --mute: #5b6577;
+  --line: #c9d1d9;
+  --accent: #0e7c86;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0e1217;
+    --panel: #19202a;
+    --ink: #e8ecf1;
+    --mute: #98a3b5;
+    --line: #2a3441;
+    --accent: #3fc1cc;
+    color-scheme: dark;
+  }
+}

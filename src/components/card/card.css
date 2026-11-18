@@ -1,0 +1,661 @@
+/* =========================================================
+   STUDENT IDENTITY CARD STYLES (Sizes in cqw = 1% of card width)
+   ========================================================= */
+
+.sc-card {
+  container-type: inline-size;
+  aspect-ratio: 1.586;
+  position: relative;
+  perspective: 1400px;
+  cursor: pointer;
+  border-radius: 4% / 6.34%;
+  user-select: none;
+  touch-action: manipulation;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sc-card:hover {
+  transform: translateY(-2px);
+}
+
+.sc-card.sel {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  box-shadow: 0 10px 28px rgba(14, 124, 134, 0.24);
+}
+
+.sc-inner {
+  position: absolute;
+  inset: 0;
+  transition: transform 0.65s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transform-style: preserve-3d;
+}
+
+.sc-card.flipped .sc-inner {
+  transform: rotateY(180deg);
+}
+
+/* Base Card Face */
+.sc-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 4cqw;
+  overflow: hidden;
+  background: #fcfcfd;
+  color: #121826;
+  box-shadow: 0 1cqw 3cqw rgba(10, 20, 40, 0.18), inset 0 0.15cqw 0.3cqw rgba(255, 255, 255, 0.9);
+}
+
+/* Lanyard Punch Slot at Top Center */
+.sc-lanyard-slot {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12cqw;
+  height: 2.6cqw;
+  display: flex;
+  justify-content: center;
+  z-index: 6;
+  pointer-events: none;
+}
+
+.sc-lanyard-hole {
+  width: 8.5cqw;
+  height: 2cqw;
+  background: var(--bg);
+  border-radius: 0 0 1.5cqw 1.5cqw;
+  box-shadow: inset 0 0.4cqw 0.8cqw rgba(0, 0, 0, 0.4), 0 0.2cqw 0.4cqw rgba(255, 255, 255, 0.8);
+  border: 0.25cqw solid rgba(0, 0, 0, 0.15);
+  border-top: 0;
+}
+
+/* =========================================================
+   FRONT FACE: ACADEMIC CREDENTIAL
+   ========================================================= */
+
+.sc-front {
+  box-shadow: inset 0 2cqw 0 var(--dept), 0 1cqw 3cqw rgba(10, 20, 40, 0.18);
+}
+
+/* Watermark Department Code */
+.sc-mono {
+  position: absolute;
+  left: -2cqw;
+  bottom: -10cqw;
+  font-size: 50cqw;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.06em;
+  color: var(--dept);
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+.sc-main {
+  position: absolute;
+  inset: 0 24cqw 0 0;
+  padding: 4cqw 4cqw 4cqw 5cqw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Top University Header */
+.sc-univ-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 0.3cqw solid rgba(18, 24, 38, 0.08);
+  padding-bottom: 1.2cqw;
+}
+
+.sc-univ-brand {
+  display: flex;
+  align-items: center;
+  gap: 1.6cqw;
+}
+
+.sc-crest {
+  width: 5cqw;
+  height: 5cqw;
+  flex-shrink: 0;
+}
+
+.sc-univ-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.sc-univ-name {
+  font-size: 2.8cqw;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: #121826;
+  line-height: 1.1;
+}
+
+.sc-univ-sub {
+  font-size: 1.9cqw;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #6b7487;
+  text-transform: uppercase;
+}
+
+.sc-dept-badge {
+  font-size: 3cqw;
+  font-weight: 800;
+  color: #fff;
+  background: var(--dept);
+  border-radius: 5cqw;
+  padding: 0.8cqw 2.6cqw;
+  letter-spacing: 0.02em;
+  box-shadow: 0 0.3cqw 0.8cqw rgba(10, 20, 40, 0.15);
+}
+
+/* Student Body (Photo + Academic Details) */
+.sc-student-body {
+  display: flex;
+  align-items: center;
+  gap: 3.5cqw;
+  margin: 1cqw 0;
+}
+
+.sc-photo-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8cqw;
+  flex-shrink: 0;
+}
+
+.sc-avatar {
+  width: 14cqw;
+  height: 14cqw;
+  border-radius: 18%;
+  overflow: hidden;
+  box-shadow: 0 0.4cqw 1cqw rgba(10, 20, 40, 0.16);
+  border: 0.35cqw solid var(--dept);
+  background: #fff;
+}
+
+.sc-avatar svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.sc-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.sc-role-tag {
+  font-size: 1.7cqw;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: #fff;
+  background: #121826;
+  border-radius: 1cqw;
+  padding: 0.3cqw 1.2cqw;
+  text-transform: uppercase;
+}
+
+.sc-details-col {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4cqw;
+}
+
+.sc-name {
+  font-weight: 800;
+  font-size: 6cqw;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0;
+  color: #121826;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sc-prog {
+  font-size: 3.2cqw;
+  font-weight: 600;
+  color: #4a5366;
+  margin: 0 0 1cqw;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Meta Data Fields */
+.sc-meta-row {
+  display: flex;
+  gap: 5cqw;
+}
+
+.sc-fld {
+  display: grid;
+  gap: 0.2cqw;
+}
+
+.sc-fld small {
+  font-size: 2.2cqw;
+  font-weight: 700;
+  color: #7a8291;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.sc-fld b {
+  font-size: 3.6cqw;
+  font-weight: 700;
+  color: #121826;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Academic Perks & Privileges */
+.sc-perks-row {
+  display: flex;
+  gap: 1.4cqw;
+  margin-top: 1cqw;
+}
+
+.sc-perk-pill {
+  font-size: 2cqw;
+  font-weight: 700;
+  color: #4a5366;
+  background: rgba(18, 24, 38, 0.05);
+  border: 0.2cqw solid rgba(18, 24, 38, 0.08);
+  border-radius: 4cqw;
+  padding: 0.4cqw 1.4cqw;
+  letter-spacing: 0.02em;
+}
+
+/* =========================================================
+   SEMESTER PUNCH STUB
+   ========================================================= */
+
+.sc-stub {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 24cqw;
+  border-left: 0.5cqw dashed rgba(18, 24, 38, 0.32);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(18, 24, 38, 0.015);
+}
+
+.sc-stripwrap {
+  display: grid;
+  gap: 2.5cqw;
+  justify-items: center;
+}
+
+.sc-stripwrap small {
+  font-size: 2.6cqw;
+  font-weight: 700;
+  color: #6b7487;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.sc-notch {
+  position: absolute;
+  right: 21cqw;
+  width: 6cqw;
+  height: 6cqw;
+  border-radius: 50%;
+  background: var(--bg);
+  box-shadow: inset 0 0.5cqw 1cqw rgba(0, 0, 0, 0.32);
+  z-index: 2;
+}
+
+.sc-notch.top {
+  top: -3cqw;
+}
+
+.sc-notch.bot {
+  bottom: -3cqw;
+}
+
+.sc-punch {
+  display: grid;
+  grid-template-columns: repeat(2, 5.8cqw);
+  gap: 2.4cqw;
+}
+
+.sc-punch i {
+  width: 5.8cqw;
+  height: 5.8cqw;
+  border-radius: 50%;
+  background: var(--dept);
+  box-shadow: 0 0.2cqw 0.5cqw rgba(0, 0, 0, 0.12);
+  position: relative;
+}
+
+.sc-punch i.on {
+  background: var(--bg);
+  box-shadow: inset 0 0.6cqw 1.2cqw rgba(0, 0, 0, 0.5), 0 0.2cqw 0.3cqw rgba(255, 255, 255, 0.7);
+  border: 0.25cqw solid rgba(0, 0, 0, 0.15);
+}
+
+.sc-punch i.last {
+  animation: sc-pop 0.4s ease-out;
+}
+
+@keyframes sc-pop {
+  0% {
+    transform: scale(1.6);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* =========================================================
+   BACK FACE: CAMPUS PASS REGULATIONS & BARCODE
+   ========================================================= */
+
+.sc-back {
+  transform: rotateY(180deg);
+  background: var(--dept);
+  color: #fff;
+  box-shadow: 0 1cqw 3cqw rgba(10, 20, 40, 0.22);
+}
+
+.sc-back-content {
+  position: absolute;
+  left: 5cqw;
+  right: 5cqw;
+  top: 4.5cqw;
+  bottom: 4cqw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sc-back-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 1.5cqw;
+  border-bottom: 0.3cqw solid rgba(255, 255, 255, 0.25);
+}
+
+.sc-back-institution {
+  display: block;
+  font-size: 3.2cqw;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: #fff;
+}
+
+.sc-back-dept {
+  font-size: 2.4cqw;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 600;
+}
+
+.sc-badge {
+  font-size: 2.8cqw;
+  font-weight: 800;
+  background: #fff;
+  color: var(--dept);
+  border-radius: 1.2cqw;
+  padding: 0.6cqw 2cqw;
+  box-shadow: 0 0.3cqw 0.8cqw rgba(0, 0, 0, 0.18);
+  letter-spacing: 0.02em;
+}
+
+.sc-badge.bad {
+  background: #c0392b;
+  color: #fff;
+}
+
+/* University Regulations Box */
+.sc-rules-box {
+  background: rgba(0, 0, 0, 0.12);
+  border: 0.2cqw solid rgba(255, 255, 255, 0.2);
+  border-radius: 1.5cqw;
+  padding: 1.4cqw 2.5cqw;
+}
+
+.sc-rules-box p {
+  margin: 0;
+  font-size: 2.2cqw;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* Personal Info Section on Back */
+.sc-back-personal {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 1.2cqw;
+  padding: 1.2cqw 2cqw;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8cqw;
+  border: 0.15cqw solid rgba(255, 255, 255, 0.2);
+}
+
+.sc-back-meta-row {
+  display: flex;
+  gap: 3.5cqw;
+  flex-wrap: wrap;
+}
+
+.sc-back-fld {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2cqw;
+}
+
+.sc-back-fld small {
+  font-size: 1.8cqw;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.78);
+  text-transform: uppercase;
+}
+
+.sc-back-fld b {
+  font-size: 2.7cqw;
+  font-weight: 700;
+  color: #fff;
+}
+
+.sc-back-address {
+  border-top: 0.15cqw solid rgba(255, 255, 255, 0.18);
+  padding-top: 0.6cqw;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2cqw;
+}
+
+.sc-back-address small {
+  font-size: 1.7cqw;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.78);
+  text-transform: uppercase;
+}
+
+.sc-back-address p {
+  margin: 0;
+  font-size: 2.2cqw;
+  font-weight: 500;
+  line-height: 1.25;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Library / Gate Scanner Barcode & QR Code */
+.sc-white {
+  background: #fff;
+  border-radius: 1.5cqw;
+  padding: 1.4cqw 2.5cqw 1cqw;
+  box-shadow: 0 0.4cqw 1.2cqw rgba(0, 0, 0, 0.16);
+}
+
+.sc-codes-container {
+  display: flex;
+  align-items: center;
+  gap: 2.4cqw;
+  width: 100%;
+}
+
+.sc-qrcode-wrap {
+  width: 12cqw;
+  height: 12cqw;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  border: 0.2cqw solid rgba(18, 24, 38, 0.15);
+  border-radius: 0.8cqw;
+  padding: 0.4cqw;
+  box-shadow: 0 0.2cqw 0.5cqw rgba(0, 0, 0, 0.08);
+}
+
+.sc-qrcode-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.sc-qr-lbl {
+  font-size: 1.2cqw;
+  font-weight: 900;
+  letter-spacing: 0.06em;
+  color: #121826;
+  margin-top: 0.2cqw;
+  white-space: nowrap;
+}
+
+.sc-barcode-wrap {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sc-barcode {
+  width: 100%;
+  height: 8.5cqw;
+  display: block;
+}
+
+.sc-idline {
+  font-size: 2.7cqw;
+  font-family: monospace;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: #3b4455;
+  text-align: center;
+  margin: 0.5cqw 0 0;
+}
+
+/* Back Footer (Registrar Signature & Help Desk) */
+.sc-back-foot {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2cqw;
+}
+
+.sc-foot-desk {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2cqw;
+}
+
+.sc-foot-desk small,
+.sc-foot-sign small {
+  font-size: 1.8cqw;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.75);
+  text-transform: uppercase;
+}
+
+.sc-foot-desk span {
+  font-size: 2.4cqw;
+  font-weight: 600;
+  color: #fff;
+}
+
+.sc-foot-sign {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.3cqw;
+}
+
+.sc-sign-script {
+  font-family: "Brush Script MT", "Caveat", cursive, sans-serif;
+  font-size: 3.8cqw;
+  color: rgba(255, 255, 255, 0.95);
+  font-style: italic;
+  border-bottom: 0.25cqw solid rgba(255, 255, 255, 0.6);
+  padding-bottom: 0.2cqw;
+  line-height: 1;
+}
+
+/* =========================================================
+   EXPIRED STATE STYLING
+   ========================================================= */
+
+.sc-card.expired .sc-name {
+  text-decoration: line-through;
+  text-decoration-thickness: 0.4cqw;
+  color: #7f8c8d;
+}
+
+.sc-card.expired .sc-main::after {
+  content: "EXPIRED";
+  position: absolute;
+  right: 4cqw;
+  bottom: 14cqw;
+  transform: rotate(-12deg);
+  font-weight: 900;
+  font-size: 6.2cqw;
+  letter-spacing: 0.1em;
+  color: #c0392b;
+  border: 0.7cqw solid #c0392b;
+  border-radius: 1.5cqw;
+  padding: 0.5cqw 2cqw;
+  opacity: 0.92;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 0.5cqw 1.5cqw rgba(192, 57, 43, 0.3);
+  pointer-events: none;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .sc-card,
+  .sc-inner {
+    transition: none;
+  }
+  .sc-punch i.last {
+    animation: none;
+  }
+}
